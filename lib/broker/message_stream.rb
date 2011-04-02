@@ -1,8 +1,3 @@
-require 'rubygems'
-require 'cramp'
-require 'usher'
-require File.dirname(__FILE__) + '/roster'
-
 module SpeckledJim
   module Broker
     class MessageStream < Cramp::Action
@@ -23,8 +18,3 @@ module SpeckledJim
   end
 end
 
-routes = Usher::Interface.for(:rack) do
-  add('/messages/:id').to(SpeckledJim::Broker::MessageStream)
-end
-
-Rack::Handler::Thin.run routes, :Port => 3000

@@ -1,12 +1,21 @@
+require 'thread'
+
 module SpeckledJim 
   module Broker
     class Node
-      def initialize(id)
-        @id = id
+      attr_reader :nid
+      
+      def initialize(nid)
+        @nid = nid
+        @messages = Queue.new
       end
       
-      def messages 
-        ["hello", "world"]
+      def next_message
+        @messages.empty? ? nil :  @messages.pop
+      end
+      
+      def send_message message
+        @messages << message
       end
     end    
   end

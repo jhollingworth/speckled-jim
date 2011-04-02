@@ -1,0 +1,9 @@
+require 'rubygems'
+require 'usher'
+require File.expand_path(File.dirname(__FILE__)) + '/../lib/broker'
+
+routes = Usher::Interface.for(:rack) do
+  add('/messages/:id').to(SpeckledJim::Broker::MessageStream)
+end
+
+Rack::Handler::Thin.run routes, :Port => 3000

@@ -1,0 +1,36 @@
+GEM
+  specs:
+    activesupport (3.0.5)
+    cramp (0.12)
+      activesupport (~> 3.0.4)
+      eventmachine (~> 0.12.10)
+      rack (~> 1.2.1)
+    diff-lcs (1.1.2)
+    eventmachine (0.12.10)
+    fuzzyhash (0.0.11)
+    macaddr (1.0.0)
+    rack (1.2.2)
+    rake (0.8.7)
+    rspec (2.5.0)
+      rspec-core (~> 2.5.0)
+      rspec-expectations (~> 2.5.0)
+      rspec-mocks (~> 2.5.0)
+    rspec-core (2.5.1)
+    rspec-expectations (2.5.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.5.0)
+    usher (0.8.3)
+      fuzzyhash (>= 0.0.11)
+    uuid (2.3.1)
+      macaddr (~> 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cramp
+  rake
+  rspec
+  rspec-core
+  usher
+  uuid
