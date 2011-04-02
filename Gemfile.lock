@@ -1,4 +1,5 @@
 GEM
+  remote: http://rubygems.org/
   specs:
     activesupport (3.0.5)
     cramp (0.12)
@@ -8,6 +9,7 @@ GEM
     diff-lcs (1.1.2)
     eventmachine (0.12.10)
     fuzzyhash (0.0.11)
+    httpclient (2.1.7.2)
     macaddr (1.0.0)
     rack (1.2.2)
     rake (0.8.7)
@@ -29,6 +31,7 @@ PLATFORMS
 
 DEPENDENCIES
   cramp
+  httpclient
   rake
   rspec
   rspec-core

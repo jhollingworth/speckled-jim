@@ -1,6 +1,8 @@
+source 'http://rubygems.org'
 gem 'rake'
 gem 'cramp'
 gem 'usher'
 gem 'uuid'
 gem 'rspec'
 gem 'rspec-core'
+gem 'httpclient'

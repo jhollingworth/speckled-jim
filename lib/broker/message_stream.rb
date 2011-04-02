@@ -6,12 +6,15 @@ module SpeckledJim
       periodic_timer :send_messages, :every => 1
             
       def authenticate
-        @node = Roster.register(params[:id])
+        @node = Roster.add(params[:id])
       end
       
       def send_messages
-        @node.messages.each do |m| 
-          render m + "\r\n"
+        message = @node.next_message 
+        unless message.nil?
+          puts "sending message:"
+          puts pp message
+          render message.body.to_s + "\r\n"
         end
       end
     end
