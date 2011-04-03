@@ -7,14 +7,18 @@ module SpeckledJim
             
       def authenticate
         @node = Roster.add(params[:id])
+        render "connected: true\r\n"
       end
       
       def send_messages
-        message = @node.next_message 
-        unless message.nil?
-          puts "sending message:"
-          puts pp message
+        while !(message = @node.next_message).nil?
+          puts "sending message to #{@node.nid}"
           render message.body.to_s + "\r\n"
+        end
+
+        if @node.disconnect?
+          puts "Closing #{@node.nid} message stream"
+          finish
         end
       end
     end

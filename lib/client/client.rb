@@ -13,6 +13,10 @@ module SpeckledJim
         
           stream.each_item do |item|
              $stdout.print "#{item}\n"
+             if item == "pong"
+               send("ping", :to => "ping")
+             end
+
              $stdout.flush
            end
 

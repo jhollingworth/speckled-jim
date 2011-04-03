@@ -5,7 +5,9 @@ module SpeckledJim
         destination = find(message.type, message.to)
         
         raise "unable to find destination for message #{message.mid}" if destination.nil?
-        
+
+        puts "Routing message to #{message.to}"
+
         destination.send_message(message)
       end
       
@@ -15,7 +17,7 @@ module SpeckledJim
           node = Roster.find(id)
           raise NodeOfflineException.new(id) if node.nil?
           node
-        else raise "Unknown message type"
+        else raise "Unknown message type #{type}"
         end
       end
     end

@@ -5,6 +5,8 @@ require File.expand_path(File.dirname(__FILE__)) + '/../lib/broker'
 routes = Usher::Interface.for(:rack) do
   add('/messages/:id').to(SpeckledJim::Broker::MessageStream)
   add('/messages').to(SpeckledJim::Broker::MessageReceiver)
+  add('/ping').to(SpeckledJim::Broker::PingReceiver)
+  add('/disconnect/:id').to(SpeckledJim::Broker::DisconnectReceiver)
 end
 
 Rack::Handler::Thin.run routes, :Port => 3000
